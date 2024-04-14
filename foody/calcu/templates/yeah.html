@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>cool</title>
+    </head>
+    <body>
+        <h1>FOOD MACROS</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label>carbs</label>
+                <input type="number" name="carbs">
+            </div>
+            <div>
+                <label>proteins</label>
+                <input type="number" name="protein">
+            </div>
+            <button type="submit">submit</button>
+        </form>
+
+    <table border="1px">
+        <thead>
+            <td>carbs</td>
+            <td>protein</td>
+            <td>total calories</td>
+        </thead>
+        {% for macs in mac %}
+        <tr>
+            <td>{{macs.carbs}}</td>
+            <td>{{macs.protein}}</td>
+            <td>{{macs.calories}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </body>
+</html>
